@@ -1,0 +1,213 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  user-select: none;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(190, 217, 225);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.slider {
+  background-color: rgb(234, 234, 234);
+  width: 90%;
+  height: 100%;
+  max-height: 250px;
+  box-shadow: 0 0 10px 7px rgba(1, 1, 1, 0.3);
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-prev__slider,
+.btn-next__slider {
+  height: 100%;
+  width: 45px;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: 0.4s ease;
+  cursor: pointer;
+}
+.btn-prev__slider:hover,
+.btn-next__slider:hover {
+  background-color: rgb(42, 42, 42);
+  transition: 0.4s ease;
+}
+.btn-next__slider {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-left: 3px solid rgb(42, 42, 42);
+}
+.btn-prev__slider {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-right: 3px solid rgb(42, 42, 42);
+}
+
+.btn-prev__slider i {
+  width: 20px;
+  height: 20px;
+  border-top: 5px solid gray;
+  border-right: 5px solid gray;
+  border-radius: 1px;
+  transform: rotate(225deg);
+  margin-left: 5px;
+}
+.btn-next__slider i {
+  width: 20px;
+  height: 20px;
+  border-top: 5px solid gray;
+  border-right: 5px solid gray;
+  border-radius: 1px;
+  transform: rotate(45deg);
+  margin-right: 5px;
+}
+.images__slider {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 120%) minmax(0px, 0px);
+  grid-column-gap: 10px;
+  text-align: center;
+  overflow: hidden;
+}
+
+@keyframes animSlide {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.img__slider {
+  width: 100%;
+  height: 100%;
+  max-height: 230px;
+  max-width: 500px;
+  border-radius: 10px;
+  cursor: pointer;
+  animation: animSlide 1s ease forwards;
+  transition: 0.4s ease;
+}
+.img__slider:hover {
+  border: 5px solid rgb(43, 60, 187);
+  transition: 0.2s ease;
+}
+
+@media (max-width: 1400px) {
+  .images__slider {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 120%) minmax(0px, 0px);
+    grid-column-gap: 10px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 850px) {
+  .images__slider {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 120%) minmax(0px, 0px);
+    grid-column-gap: 10px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 550px) {
+  .images__slider {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 120%) minmax(0px, 0px);
+    grid-column-gap: 10px;
+    justify-content: center;
+  }
+}
+
+#fileInput {
+  display: none;
+}
+.custom-file-upload {
+  padding: 15px 40px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: rgb(43, 60, 187);
+  border: 1px solid rgb(43, 60, 187);
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 5px 5px rgba(1, 1, 1, 0.3);
+  transition: 0.4s ease;
+}
+.custom-file-upload:hover {
+  color: rgb(43, 60, 187);
+  background-color: white;
+  border: 1px solid rgb(43, 60, 187);
+  transition: 0.4s ease;
+}
+
+.container-img {
+  background-color: rgba(1, 1, 1, 0.87);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  cursor: pointer;
+}
+
+.container-img img {
+  width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  max-width: 1200px;
+  cursor: default;
+}
+.btn-close {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  font-size: 72px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.btn-close:hover {
+  transform: scale(0.9);
+  transition: 0.3s ease;
+}
